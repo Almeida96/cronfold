@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "warehouse-backup",
+      "cron": "30 1 * * *",
+      "zone": "America/New_York",
+      "gap": "skip",
+      "overlap": "earlier",
+      "durationMinutes": 25,
+      "resource": "warehouse-writer"
+    },
+    {
+      "id": "ledger-close",
+      "cron": "40 6 * * *",
+      "zone": "UTC",
+      "durationMinutes": 20,
+      "resource": "warehouse-writer"
+    }
+  ]
+}
